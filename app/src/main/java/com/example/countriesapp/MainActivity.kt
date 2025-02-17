@@ -51,14 +51,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun CountryAppPreview() {
@@ -87,16 +79,12 @@ fun CountryElement(
         modifier = Modifier.background(Color.White).fillMaxWidth()
     ) {
         Image(painterResource(country.flag), contentDescription = "${country.name} Flag", modifier = Modifier.height(50.dp).width(80.dp))
-        Column() {
-            Text(text = "Country: ${country.name}", style = MaterialTheme.typography.titleSmall, modifier = Modifier)
+        Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+            Text(text = "Country: ${country.name}", style = MaterialTheme.typography.titleMedium, modifier = Modifier)
+            Text(text = "Capital: ${country.capital}", style = MaterialTheme.typography.bodySmall, modifier = Modifier)
             Text(text = "Currency: ${country.currency}", style = MaterialTheme.typography.bodySmall, modifier = Modifier)
         }
     }
     Spacer(modifier = Modifier.padding(top = 4.dp))
     HorizontalDivider(thickness = 2.dp, color = Color.Black, modifier = Modifier)
 }
-//@Preview
-//@Composable
-//fun CountryElementPreview() {
-//    CountryElement(CountryList[0])
-//}
