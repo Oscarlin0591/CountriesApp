@@ -27,6 +27,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.countriesapp.navigation.CountryScreens
 import com.example.countriesapp.viewModel.getCountries
@@ -69,9 +70,9 @@ fun MovieRow(country: Country = getCountries()[0], itemClick:(String) -> Unit = 
                 shape = RectangleShape,
             ) {
                 Image(
-                    painter = rememberImagePainter(data = country.flag),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = "Movie Poster"
+                    painter = rememberAsyncImagePainter(model = country.flag),
+                    contentScale = ContentScale.Fit,
+                    contentDescription = "Country Flag"
                 )
 
 
